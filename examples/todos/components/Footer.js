@@ -1,21 +1,30 @@
 import React from 'react'
-import FilterLink from '../containers/FilterLink'
+import Link from './Link'
 
-const Footer = () => (
+const Footer = ({activeFilter, setFilter}) => (
   <p>
     Show:
     {" "}
-    <FilterLink filter="SHOW_ALL">
+    <Link
+      active={activeFilter==='SHOW_ALL'}
+      onClick={()=>setFilter('SHOW_ALL')}
+    >
       All
-    </FilterLink>
+    </Link>
     {", "}
-    <FilterLink filter="SHOW_ACTIVE">
+    <Link
+      active={activeFilter==='SHOW_ACTIVE'}
+      onClick={()=>setFilter('SHOW_ACTIVE')}
+    >
       Active
-    </FilterLink>
+    </Link>
     {", "}
-    <FilterLink filter="SHOW_COMPLETED">
+    <Link
+      active={activeFilter==='SHOW_COMPLETED'}
+      onClick={()=>setFilter('SHOW_COMPLETED')}
+    >
       Completed
-    </FilterLink>
+    </Link>
   </p>
 )
 
